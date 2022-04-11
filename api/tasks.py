@@ -38,7 +38,7 @@ class handler(BaseHTTPRequestHandler):
                 <td>Done</td>
                 </tr>
                 <tr>
-                <td>Create a simple html front end to interact with serverless function</td>
+                <td>Create a serverless function</td>
                 <td>Done</td>
                 </tr>
             </table>  
@@ -48,11 +48,3 @@ class handler(BaseHTTPRequestHandler):
     self.wfile.write(output.encode())
     return
 
-# def main():
-#     PORT=3000
-#     server= HTTPServer(('',PORT),handler)
-#     print('%s'% PORT)
-#     server.serve_forever()
-
-# if __name__=='__main__':
-#     main()

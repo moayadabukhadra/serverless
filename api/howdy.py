@@ -4,12 +4,35 @@ import requests
 class handler(BaseHTTPRequestHandler):
 
   def do_GET(self):
-    #  request is successful and you will get your response
-    self.send_response(200)
-    self.send_header('Content-type', 'text/plain')
-    self.end_headers()
-    r = requests.get('https://serverless-virid-eight.vercel.app/')
-    r.status_code
-    r.headers['content-type']
-    self.wfile.write(r.headers['content-type'].encode())
+   
+    url = "https://catfact.ninja/fact"
 
+    querystring = {"s":"Avengers Endgame","r":"json","page":"1"}
+
+   
+
+    response = requests("GET", url, params=querystring)
+
+   
+def main():
+    PORT=3000
+    server= HTTPServer(('',PORT),handler)
+    print('%s'% PORT)
+    server.serve_forever()
+
+def response():
+  url = "https://movie-database-alternative.p.rapidapi.com/"
+
+  querystring = {"s":"Avengers Endgame","r":"json","page":"1"}
+
+  headers = {
+    "X-RapidAPI-Host": "movie-database-alternative.p.rapidapi.com",
+    "X-RapidAPI-Key": "c796404f3dmsh382050b2263cf4cp19411djsn3deb0c68a138"
+  }
+
+  response = requests.request("GET", url, headers=headers, params=querystring)
+
+  print(response.text)
+if __name__=='__main__':
+  # main()
+  response()
