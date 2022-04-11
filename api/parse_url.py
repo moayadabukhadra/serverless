@@ -47,14 +47,14 @@ class handler(BaseHTTPRequestHandler):
   
     return
    
-def main():
-    PORT=3000
-    server= HTTPServer(('',PORT),handler)
-    print('%s'% PORT)
-    server.serve_forever()
+# def main():
+#     PORT=3000
+#     server= HTTPServer(('',PORT),handler)
+#     print('%s'% PORT)
+#     server.serve_forever()
 
     
 
 
-if __name__=='__main__':
-  main()
+# if __name__=='__main__':
+#   main()
