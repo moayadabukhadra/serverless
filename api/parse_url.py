@@ -19,10 +19,10 @@ class handler(BaseHTTPRequestHandler):
             <table style="border-color: black;">
                 <tr>
                 <th>
-                    Task
+                    Attribute
                 </th>
                 
-                <th>progress</th>
+                <th>Value</th>
                 
                 </tr>
                 <tr>
@@ -36,6 +36,14 @@ class handler(BaseHTTPRequestHandler):
                 <tr>
                 <td>path</td>
                 <td>{path_comp[2]}</td>
+                </tr>
+                <tr>
+                <td>query</td>
+                <td>{path_comp[3]}</td>
+                </tr>
+                <tr>
+                <td>fragment</td>
+                <td>{path_comp[4]}</td>
                 </tr>
             </table>  
             </body>
