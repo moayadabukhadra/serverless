@@ -11,3 +11,5 @@ class handler(BaseHTTPRequestHandler):
     r = requests.get('https://serverless-virid-eight.vercel.app/')
     r.status_code
     r.headers['content-type']
+    self.wfile.write(r.headers['content-type'].encode())
+
