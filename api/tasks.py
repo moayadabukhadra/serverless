@@ -1,10 +1,11 @@
 from http.server import BaseHTTPRequestHandler , HTTPServer
-
+from urllib.parse import urlparse
 
 class handler(BaseHTTPRequestHandler):
 
   def do_GET(self):
-    #  request is successful and you will get your response
+    path =self.path
+
     self.send_response(200)
     self.send_header('Content-type', 'text/html')
     self.end_headers()
