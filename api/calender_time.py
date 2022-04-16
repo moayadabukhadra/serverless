@@ -1,5 +1,5 @@
 from http.server import BaseHTTPRequestHandler , HTTPServer
-from urllib import parse
+
 import calendar
 from datetime import datetime
 
@@ -16,14 +16,19 @@ class handler(BaseHTTPRequestHandler):
 
   def do_GET(self):
     path=self.path
-    path_comp=parse.urlsplit(path)
+    cal=calendar.HTMLCalendar(firstweekday = 0)
+    
     current_date = datetime.now()
-    current_date.strftime('%A')  # will return "Wednesday"
+    current_date.strftime('%A')
     output=""
     output+=""
     output+=f"<h2>Today is {current_date.strftime('%A')}</h2>"
-    output+=f"<h2>Todays Date {datetime.today()}</h2>"
-    output+=f"""{calendar.calendar(2019)}"""
+    output+=f"""
+    <h2>Todays time: {datetime.time(datetime.today())}</h2>
+    
+    <h2>Todays Date: {datetime.date(datetime.today())}</h2>
+    """
+    output+=f"""{cal.formatyear(2022)}"""
     
     
     self.send_response(200)
@@ -33,14 +38,14 @@ class handler(BaseHTTPRequestHandler):
   
     return
    
-# def main():
-#     PORT=3000
-#     server= HTTPServer(('',PORT),handler)
-#     print('%s'% PORT)
-#     server.serve_forever()
+def main():
+    PORT=3000
+    server= HTTPServer(('',PORT),handler)
+    print('%s'% PORT)
+    server.serve_forever()
 
     
 
 
-# if __name__=='__main__':
-#   main()
+if __name__=='__main__':
+  main()
